@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header">28sp</dimen>
+    <dimen name="calendar">22sp</dimen>
+    <dimen name="title">18sp</dimen>
+    <dimen name="title_weather">22sp</dimen>
+    <dimen name="subTitle">16sp</dimen>
+    <dimen name="date">14sp</dimen>
+</resources>

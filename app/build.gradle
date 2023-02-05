@@ -1,0 +1,117 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    // parcelize for dataClass
+    id 'kotlin-parcelize'
+    // argument
+    id 'androidx.navigation.safeargs'
+}
+
+android {
+    namespace 'ir.reversedev.mycalendar'
+    buildFeatures{
+        viewBinding true
+    }
+    kapt {
+        correctErrorTypes = true
+    }
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "ir.reversedev.mycalendar"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+    // navigation component
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
+    // server =>
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+
+    // date picker
+    implementation 'com.github.aliab:Persian-Date-Picker-Dialog:1.8.0'
+    // calendar
+    implementation "com.github.javaherisaber:JalaliCalendar:1.3.1"
+
+    // RxJava RxAndroid
+    implementation "io.reactivex.rxjava2:rxjava:2.2.7"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    // room
+    implementation "androidx.room:room-runtime:2.4.3"
+    kapt "androidx.room:room-compiler:2.4.3"
+    implementation "androidx.room:room-ktx:2.4.3"
+    // sweet alert dialog
+    implementation 'com.github.f0ris.sweetalert:library:1.6.2'
+    // coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+    // If you want to use the GPU Filters
+    implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
+
+    // epoxy
+    implementation  'com.airbnb.android:epoxy:3.6.0'
+    kapt 'com.airbnb.android:epoxy-processor:3.6.0'
+    // date picker
+    implementation 'com.github.aliab:Persian-Date-Picker-Dialog:1.8.0'
+
+
+    // RxJava RxAndroid
+    implementation "io.reactivex.rxjava2:rxjava:2.2.7"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    // lottie library
+    implementation 'com.airbnb.android:lottie:4.2.2'
+
+    // workManager
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
+    // livecycle viewModel
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+    // dagger 2
+
+    implementation 'com.google.dagger:dagger-android-support:2.44.2'
+    kapt 'com.google.dagger:dagger-android-processor:2.44.2'
+    kapt 'com.google.dagger:dagger-compiler:2.44.2'
+
+    // sunrise and sunset
+    implementation 'com.github.tianma8023:SunriseSunsetView:0.0.3'
+    implementation 'com.aminography:primecalendar:1.7.0'
+    // calendar
+    implementation project(":calendar")
+}

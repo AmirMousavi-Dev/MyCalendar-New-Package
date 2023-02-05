@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">My Calendar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="shamsi_to_miladi_ghamari">خورشیدی (جلالی) به میلادی و قمری</string>
+    <string name="convert_date">تبدیل تاریخ</string>
+    <string name="go_to_today">برو به امروز</string>
+    <string name="changed_date">تبدیل تاریخ</string>
+    <string name="time_date_today">ساعت و تاریخ</string>
+    <string name="weather">آب و هوا</string>
+    <string name="calendar">تقویم</string>
+    <string name="oghat_sharghi">اوقات شرِعی</string>
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
+    <string name="confirm">تایید</string>
+    <string name="cancel">لغو</string>
+</resources>

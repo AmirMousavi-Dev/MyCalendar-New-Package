@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <item android:title="درباره ما"
+        android:id="@+id/menu_aboutUs"
+        android:icon="@drawable/ic_info"/>
+    <item android:title="وبسایت ما"
+        android:id="@+id/menu_ourWebsite"
+        android:icon="@drawable/ic_global"/>
+    <item android:title="امتیاز به ما"
+        android:id="@+id/menu_rattingUs"
+        android:icon="@drawable/ic_star"/>
+
+
+</menu>

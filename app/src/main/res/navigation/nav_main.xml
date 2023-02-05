@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/timeAndDateFragment">
+
+    <fragment
+        android:id="@+id/timeAndDateFragment"
+        android:name="ir.reversedev.mycalendar.ui.time.TimeAndDateFragment"
+        android:label="ساعت و تاریخ روز"
+        tools:layout="@layout/fragment_time_and_date" />
+    <fragment
+        android:id="@+id/dateConverterFragment"
+        android:name="ir.reversedev.mycalendar.ui.converter.DateConverterFragment"
+        android:label="تبدیل تاریخ"
+        tools:layout="@layout/fragment_date_converter" >
+    </fragment>
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="ir.reversedev.mycalendar.ui.calendar.CalendarFragment"
+        android:label="تقویم"
+        tools:layout="@layout/fragment_calendar" >
+        <action
+            android:id="@+id/action_calendarFragment_to_note_dialog"
+            app:destination="@id/note_dialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="ir.reversedev.mycalendar.ui.weather.WeatherFragment"
+        android:label="آب و هوا"
+        tools:layout="@layout/fragment_weather" >
+        <action
+            android:id="@+id/action_weatherFragment_to_favoriteDialog"
+            app:destination="@id/favoriteDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/chooseStateDialog"
+        android:name="ir.reversedev.mycalendar.ui.oghat.choosecity.state.ChooseStateDialog"
+        android:label="fragment_choose_state_dialog"
+        tools:layout="@layout/fragment_choose_city_dialog" >
+        <action
+            android:id="@+id/action_weatherFragment_to_chooseCityDialog"
+            app:destination="@id/chooseCityDialog" />
+    </dialog>
+    <dialog
+        android:id="@+id/chooseCityDialog"
+        android:name="ir.reversedev.mycalendar.ui.oghat.choosecity.city.ChooseCityDialog"
+        android:label="fragment_choose_city_dialog"
+        tools:layout="@layout/fragment_choose_city_dialog" >
+        <argument
+            android:name="state"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_chooseCityDialog_to_oghatSharghiFragment"
+            app:destination="@id/oghatSharghiFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/favoriteDialog"
+        android:name="ir.reversedev.mycalendar.ui.oghat.choosecity.favorite.FavoriteDialog"
+        android:label="favorite_dialog"
+        tools:layout="@layout/favorite_dialog" >
+        <action
+            android:id="@+id/action_chooseCityDialog_to_weatherFragment"
+            app:destination="@id/weatherFragment" />
+        <action
+            android:id="@+id/action_favoriteDialog_to_oghatSharghiFragment"
+            app:destination="@id/oghatSharghiFragment" />
+        <argument
+            android:name="where"
+            app:argType="string" />
+    </dialog>
+    <fragment
+        android:id="@+id/oghatSharghiFragment"
+        android:name="ir.reversedev.mycalendar.ui.oghat.OghatShareiFragment"
+        android:label="اوقات شرعی"
+        tools:layout="@layout/fragment_oghat_sharei" >
+        <action
+            android:id="@+id/action_oghatSharghiFragment_to_chooseStateDialog"
+            app:destination="@id/chooseStateDialog" />
+        <action
+            android:id="@+id/action_oghatSharghiFragment_to_favoriteDialog"
+            app:destination="@id/favoriteDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/note_dialog"
+        android:name="ir.reversedev.mycalendar.ui.calendar.note.NoteDialog"
+        android:label="note_dialog"
+        tools:layout="@layout/note_dialog" >
+        <argument
+            android:name="year"
+            app:argType="integer" />
+        <argument
+            android:name="month"
+            app:argType="integer" />
+        <argument
+            android:name="day"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_note_dialog_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+        <argument
+            android:name="note"
+            app:argType="ir.reversedev.mycalendar.model.data.NoteEntity"
+            app:nullable="true" />
+    </dialog>
+</navigation>
