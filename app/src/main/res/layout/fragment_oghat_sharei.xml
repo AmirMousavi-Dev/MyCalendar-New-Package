@@ -30,19 +30,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        app:icon="@drawable/ic_down"
-        android:textStyle="bold"
-        android:textSize="@dimen/title"
-        android:layout_marginTop="8dp"
-        android:id="@+id/btnChooseCity"
-        android:backgroundTint="?attr/colorSecondary"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:gravity="center"
+        android:id="@+id/btnChooseCity"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/btn_city_shape"
+        android:textSize="@dimen/title"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabAddCity"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageButton
+        android:background="@drawable/btn_city_shape"
+        android:id="@+id/fabAddCity"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_add"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnChooseCity"/>
 
 
     <com.google.android.material.card.MaterialCardView
@@ -323,23 +336,6 @@
             app:ssv_track_width="1.5dp" />
 
     </com.google.android.material.card.MaterialCardView>
-
-
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="افزودن شهر"
-        android:textColor="@color/white"
-        android:textSize="@dimen/title"
-        android:textStyle="bold"
-        app:icon="@drawable/ic_add"
-        app:iconTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="16dp"
-        android:id="@+id/fabAddCity" />
 
 
 

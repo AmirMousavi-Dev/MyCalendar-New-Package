@@ -32,20 +32,21 @@
             android:id="@+id/conWeather"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <com.google.android.material.button.MaterialButton
+            <androidx.appcompat.widget.AppCompatButton
+                android:gravity="center"
                 android:id="@+id/btnChooseCity"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="?attr/colorSecondary"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/btn_city_shape"
                 android:textSize="@dimen/title"
+                android:textColor="@color/white"
                 android:textStyle="bold"
-                app:icon="@drawable/ic_down"
                 app:layout_constraintEnd_toEndOf="@+id/materialCardView3"
                 app:layout_constraintStart_toStartOf="@+id/materialCardView3"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/materialCardView3"
