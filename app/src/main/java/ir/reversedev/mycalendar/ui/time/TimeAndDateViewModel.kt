@@ -28,7 +28,7 @@ class TimeAndDateViewModel @Inject constructor (private val mainRepository: Main
     private val mutableLiveTime = MutableLiveData<String>()
     val liveTime : LiveData<String>
         get() = mutableLiveTime
-    private val _monasebat = MutableLiveData<Event<MonasebatEntity.MonasebatEntityItem>> ()
+    private val _monasebat = MutableLiveData<Event<String>> ()
     val monasebat
         get() = _monasebat
 
@@ -80,10 +80,15 @@ class TimeAndDateViewModel @Inject constructor (private val mainRepository: Main
     }
 
     fun getMonasebat () {
+        try {
+
         viewModelScope.launch {
             val data = mainRepository.getMonasebat()
-            val monasebat = data[0]
+            val monasebat = data[0].occasion
             _monasebat.value = Event(monasebat)
         }
+    } catch (e :Exception) {
+            _monasebat.value = Event("خطا در اتصال به سرور")
     }
+        }
 }

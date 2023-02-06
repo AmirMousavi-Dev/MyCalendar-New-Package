@@ -1,5 +1,6 @@
 package ir.reversedev.mycalendar.ui.converter
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -64,9 +65,12 @@ class DateConverterFragment : DaggerFragment() {
             .setTodayButton("تاریخ امروز")
             .setTodayButtonVisible(true)
             .setMinYear(1300)
-            .setMaxYear(1450)
+            .setMaxYear(1500)
             .setMaxMonth(12)
             .setMaxDay(31)
+            .setActionTextColor(Color.BLACK)
+            .setBackgroundColor(Color.LTGRAY)
+            .setPickerBackgroundColor(Color.LTGRAY)
             .setInitDate(PersianDatePickerDialog.THIS_YEAR , PersianDatePickerDialog.THIS_MONTH , PersianDatePickerDialog.THIS_DAY)
             .setActionTextColor(R.style.Theme_MyCalendar)
             .setTitleType(PersianDatePickerDialog.WEEKDAY_DAY_MONTH_YEAR)

@@ -41,6 +41,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildToolsVersion '30.0.3'
 }
 
 dependencies {
@@ -53,6 +54,7 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
 
     // navigation component
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
@@ -114,4 +116,6 @@ dependencies {
     implementation 'com.aminography:primecalendar:1.7.0'
     // calendar
     implementation project(":calendar")
+    // tapSell
+    implementation("ir.tapsell.plus:tapsell-plus-sdk-android:2.1.8")
 }

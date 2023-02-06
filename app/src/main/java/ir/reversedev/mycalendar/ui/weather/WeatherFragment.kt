@@ -182,6 +182,7 @@ class WeatherFragment : DaggerFragment() {
         } else {
             _binding.imgInternetWeather.visibility = View.VISIBLE
             _binding.nesWeather.visibility = View.GONE
+            _binding.progressBarWeather.visibility = View.GONE
         }
     }
 

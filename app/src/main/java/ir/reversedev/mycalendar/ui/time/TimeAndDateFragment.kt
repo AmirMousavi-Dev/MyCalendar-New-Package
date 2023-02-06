@@ -71,7 +71,7 @@ class TimeAndDateFragment() : DaggerFragment() {
             viewModel.monasebat.observe(this.viewLifecycleOwner) {
                 it.ifNotHandled { monasebat ->
                     _binding.animMonasebat.visibility = View.GONE
-                    _binding.txtTitleMonasebat.text = monasebat.occasion
+                    _binding.txtTitleMonasebat.text = monasebat
                 }
             }
         } else {

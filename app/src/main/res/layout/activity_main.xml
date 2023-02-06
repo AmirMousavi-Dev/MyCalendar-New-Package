@@ -30,15 +30,29 @@
                 app:titleTextAppearance="@style/MyToolbar"
                 app:titleTextColor="@color/white"/>
         </com.google.android.material.appbar.AppBarLayout>
-
-        <FrameLayout
-            android:layoutDirection="ltr"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-            android:id="@+id/fragmentContainerView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="56dp" />
+            android:layout_marginBottom="56dp"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            >
+            <FrameLayout
+                android:layoutDirection="ltr"
+                android:id="@+id/fragmentContainerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/standardBanner">
 
+            </FrameLayout>
+            <RelativeLayout
+                android:id="@+id/standardBanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layoutDirection="ltr"
             android:id="@+id/bottomNavigationView"
