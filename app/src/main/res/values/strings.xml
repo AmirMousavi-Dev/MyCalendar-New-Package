@@ -14,4 +14,9 @@
     <string name="close_drawer">Close Drawer</string>
     <string name="confirm">تایید</string>
     <string name="cancel">لغو</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_date_solar">"تاریخ شمسی</string>
+    <string name="title_date_gregorian">تاریخ میلادی</string>
+    <string name="title_date_lunar">تاریخ قمری</string>
+    <string name="title_time_interval">زمانی فاصله :</string>
 </resources>

@@ -15,6 +15,7 @@ import ir.reversedev.mycalendar.util.CalendarService
 import ir.reversedev.mycalendar.util.Constant.Companion.TAP_SELL_KEY
 import ir.reversedev.mycalendar.util.Constant.Companion.ZONE_ID_REWARDED_VIDEO
 import ir.reversedev.mycalendar.util.Constant.Companion.ZONE_ID_STANDARD_BANNER
+import ir.reversedev.mycalendar.util.LocalUtils
 import ir.tapsell.plus.*
 import ir.tapsell.plus.model.AdNetworkError
 import ir.tapsell.plus.model.AdNetworks
@@ -32,6 +33,7 @@ class MainActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         startCalendarService()
+        LocalUtils.setLocale(this, "en")
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(_binding.root)
         initialTapSell()
@@ -53,6 +55,7 @@ class MainActivity : DaggerAppCompatActivity() {
                     intent.setPackage("com.farsitel.bazaar")
                     startActivity(intent)
                 }
+
                 R.id.menu_ourWebsite -> {
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.data =
@@ -60,6 +63,7 @@ class MainActivity : DaggerAppCompatActivity() {
                     intent.setPackage("com.farsitel.bazaar")
                     startActivity(intent)
                 }
+
                 R.id.menu_rattingUs -> {
                     val intent = Intent(Intent.ACTION_EDIT)
                     intent.data = Uri.parse("bazaar://details?id=" + "com.example.mycalendar")
@@ -84,12 +88,13 @@ class MainActivity : DaggerAppCompatActivity() {
                 R.id.oghatSharghiFragment,
                 R.id.timeAndDateFragment -> {
                     _binding.toolBarMain.title = destination.label
-                    showAdsCounter ++
+                    showAdsCounter++
                     if (showAdsCounter % 5 == 0) {
                         showInterstitialAd()
                     }
                     View.VISIBLE
                 }
+
                 else ->
                     View.GONE
 
@@ -114,8 +119,9 @@ class MainActivity : DaggerAppCompatActivity() {
 
             }
     }
+
     private fun startCalendarService() {
-        val intent = Intent(this , CalendarService::class.java)
+        val intent = Intent(this, CalendarService::class.java)
         startService(intent)
     }
 
@@ -139,18 +145,19 @@ class MainActivity : DaggerAppCompatActivity() {
                 }
             })
     }
+
     private fun requestStandardBanner() {
         TapsellPlus.requestStandardBannerAd(
             this, ZONE_ID_STANDARD_BANNER,
             TapsellPlusBannerType.BANNER_320x50,
             object : AdRequestCallback() {
-                override fun response (tapsellPlusAdModel: TapsellPlusAdModel) {
+                override fun response(tapsellPlusAdModel: TapsellPlusAdModel) {
                     super.response(tapsellPlusAdModel)
 
                     //Ad is ready to show
                     //Put the ad's responseId to your responseId variable
                     val standardBannerResponseId = tapsellPlusAdModel.responseId
-                    Log.d("responseTapSell" , "success")
+                    Log.d("responseTapSell", "success")
 
                     TapsellPlus.showStandardBannerAd(this@MainActivity, standardBannerResponseId,
                         _binding.standardBanner,
@@ -167,11 +174,12 @@ class MainActivity : DaggerAppCompatActivity() {
 
                 override fun error(message: String?) {
 
-                    Log.d("responseTapSell" , "fail")
+                    Log.d("responseTapSell", "fail")
                 }
             })
     }
-    private fun showInterstitialAd () {
+
+    private fun showInterstitialAd() {
 
         TapsellPlus.requestInterstitialAd(
             this,
@@ -189,9 +197,11 @@ class MainActivity : DaggerAppCompatActivity() {
                             override fun onOpened(tapsellPlusAdModel: TapsellPlusAdModel) {
                                 super.onOpened(tapsellPlusAdModel)
                             }
+
                             override fun onClosed(tapsellPlusAdModel: TapsellPlusAdModel) {
                                 super.onClosed(tapsellPlusAdModel)
                             }
+
                             override fun onError(tapsellPlusErrorModel: TapsellPlusErrorModel) {
                                 super.onError(tapsellPlusErrorModel)
                             }
@@ -201,7 +211,6 @@ class MainActivity : DaggerAppCompatActivity() {
 
                 override fun error(message: String) {}
             })
-
 
 
     }

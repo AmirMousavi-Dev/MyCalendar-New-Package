@@ -15,15 +15,18 @@
         <item name="android:textColor">@color/text_color</item>
         <item name="fontFamily">@font/iranian_sans_mobile_fa_num</item>
     </style>
+
     <style name="MyToolbar" parent="Theme.MaterialComponents">
         <item name="android:textColorSecondary">@color/white</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">22sp</item>
     </style>
+
     <style name="ThemeText" parent="Theme.MyCalendar">
         <item name="android:textSize">@dimen/subTitle</item>
         <item name="android:textColor">@color/blue_700</item>
     </style>
+
     <style name="calender" parent="Theme.MyCalendar">
         <item name="fontFamily">@font/iranian_sans_mobile_fa_num</item>
     </style>

@@ -6,37 +6,38 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
 import com.aminography.primecalendar.civil.CivilCalendar
 import com.aminography.primecalendar.common.toCivil
 import com.aminography.primecalendar.common.toHijri
 import com.aminography.primecalendar.hijri.HijriCalendar
 import dagger.android.support.DaggerFragment
-import ir.hamsaa.persiandatepicker.PersianDatePickerDialog
-import ir.hamsaa.persiandatepicker.api.PersianPickerDate
-import ir.hamsaa.persiandatepicker.api.PersianPickerListener
-import ir.reversedev.mycalendar.R
+
 import ir.reversedev.mycalendar.databinding.FragmentDateConverterBinding
-import java.text.SimpleDateFormat
+
 import java.util.*
 import javax.inject.Inject
 
 class DateConverterFragment : DaggerFragment() {
-    private lateinit var _binding : FragmentDateConverterBinding
+    private lateinit var composeView: ComposeView
     @Inject
     lateinit var viewModel : DateConverterViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        _binding = FragmentDateConverterBinding.inflate(inflater , container , false)
-        return _binding.root
+    ): View {
+        return ComposeView(requireContext()).also {
+            composeView = it
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        composeView.setContent {
+            DateConverterScreen(viewModel = viewModel)
+            }
 
-        val persian = viewModel.persianDate()
+        /*val persian = viewModel.persianDate()
         val hijri = viewModel.hijriDate()
         val civil = viewModel.civilDate()
         with(_binding) {
@@ -57,9 +58,9 @@ class DateConverterFragment : DaggerFragment() {
             txtMonthMiladiDC.text = civil[1]
             txtYearMiladiDC.text = civil[2]
             txtDayMiladiDC.text = civil[3]
-        }
+        }*/
 
-        val picker = PersianDatePickerDialog(context)
+       /* val picker = PersianDatePickerDialog(context)
             .setPositiveButtonString("تبدیل تاریخ")
             .setNegativeButton("برگشت")
             .setTodayButton("تاریخ امروز")
@@ -131,7 +132,7 @@ class DateConverterFragment : DaggerFragment() {
 
         _binding.cvShowDate.setOnClickListener {
             picker.show()
-        }
+        }*/
 
     }
     private fun hijri(year: Int, month: Int, day: Int): HijriCalendar {

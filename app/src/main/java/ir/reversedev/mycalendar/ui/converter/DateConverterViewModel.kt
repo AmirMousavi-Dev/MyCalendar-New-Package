@@ -4,10 +4,15 @@ import com.aminography.primecalendar.common.toCivil
 import com.aminography.primecalendar.common.toHijri
 import com.aminography.primecalendar.common.toPersian
 import com.aminography.primecalendar.persian.PersianCalendar
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import java.util.*
 import javax.inject.Inject
 
 class DateConverterViewModel @Inject constructor() {
+
+    private val _state = MutableStateFlow(FirstState())
+    val state = _state.asStateFlow()
 
     fun persianDate(): List<String> {
         val calendar = Calendar.getInstance()
@@ -48,3 +53,4 @@ class DateConverterViewModel @Inject constructor() {
 
 
 }
+class FirstState
