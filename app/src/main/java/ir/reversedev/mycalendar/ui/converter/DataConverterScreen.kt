@@ -117,7 +117,8 @@ fun DateConverterScreen(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp)
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             CustomOutlinedButton(text = solar.value[3].setCurrentDate(
                 solar.value[0],
